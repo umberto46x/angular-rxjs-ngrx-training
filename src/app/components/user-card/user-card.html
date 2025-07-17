@@ -1,0 +1,8 @@
+<div class="card_container">
+  <h1>{{ user?.id }} {{ user?.name }} {{ user?.surname }}</h1>
+  <p>
+    Age: {{ user?.age }} - Address: {{ user?.address }} - Contacted:
+    {{ user?.wasContacted }}
+  </p>
+  <button type="button" (click)="handleContact()">Contact Me</button>
+</div>

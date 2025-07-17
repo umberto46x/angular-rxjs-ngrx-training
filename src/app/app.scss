@@ -1,0 +1,14 @@
+@use "components/user-card/user-card.scss";
+
+body {
+  height: 100%;
+  background-color: lightgrey;
+}
+
+.users_container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+
+  justify-content: space-between;
+}
