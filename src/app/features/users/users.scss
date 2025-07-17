@@ -1,0 +1,96 @@
+.users_filter {
+  width: 50%;
+  margin: auto;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  border: 4px solid black;
+
+  div {
+    align-self: center;
+    width: 25%;
+
+    p {
+      color: red;
+    }
+  }
+
+  button {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 4px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      border: 4px solid grey;
+      cursor: pointer;
+      transition: color 0.5s, background-color 0.5s, border 0.5s;
+    }
+  }
+}
+
+.users_container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.users_empty {
+  margin: auto;
+  margin-top: 5rem;
+  width: 80%;
+  padding: 5rem;
+  border: 5px solid red;
+  border-radius: 20px;
+  text-align: center;
+  background-color: lighten($color: red, $amount: 25%);
+  color: darken($color: red, $amount: 20%);
+  font-size: 3rem;
+}
+
+.users_loading {
+  margin: auto;
+  margin-top: 5rem;
+  width: 80%;
+  padding: 5rem;
+  border: 5px solid green;
+  border-radius: 20px;
+  text-align: center;
+  background-color: lighten($color: green, $amount: 25%);
+  color: darken($color: green, $amount: 20%);
+  font-size: 3rem;
+}
+
+.userModal {
+  margin: auto;
+  margin-top: 5rem;
+  width: 80%;
+  padding: 5rem;
+  border: 5px solid brown;
+  border-radius: 20px;
+  text-align: center;
+  background-color: lighten($color: brown, $amount: 25%);
+  color: darken($color: brown, $amount: 20%);
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  button {
+    width: 10%;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    font-size: 5rem;
+
+    &:hover {
+      background-color: lighten($color: black, $amount: 35%);
+      color: white;
+    }
+  }
+}

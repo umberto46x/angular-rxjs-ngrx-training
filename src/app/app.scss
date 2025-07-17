@@ -1,14 +1,10 @@
 @use "components/user-card/user-card.scss";
+@use "features/user-details/user-details.scss";
+@use "features/users/users.scss";
+@use "features/home/home.scss";
+@use "layout/navbar/navbar.scss";
 
 body {
   height: 100%;
   background-color: lightgrey;
-}
-
-.users_container {
-  width: 100%;
-  margin: auto;
-  display: flex;
-
-  justify-content: space-between;
 }

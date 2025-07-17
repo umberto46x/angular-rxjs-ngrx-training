@@ -5,4 +5,7 @@
     {{ user?.wasContacted }}
   </p>
   <button type="button" (click)="handleContact()">Contact Me</button>
+  <span *ngIf="!selected">
+    <button type="button" (click)="handleUserDetails()">Show Details</button>
+  </span>
 </div>

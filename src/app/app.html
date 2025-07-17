@@ -1,8 +1,3 @@
-<div class="users_container" *ngFor="let user of users">
-  <user-card
-    [user]="user"
-    (userContacted)="handleContact($event, user.id)"
-  ></user-card>
-</div>
+<navbar />
 
 <router-outlet />

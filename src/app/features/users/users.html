@@ -1,0 +1,49 @@
+<div class="users_filter">
+  <div>
+    Active Filter:
+    <p>{{ filter }}</p>
+  </div>
+  <button (click)="handleFilter('All')">Select All Users</button>
+  <button (click)="handleFilter('wasContacted')">Select Contacted Users</button>
+  <button (click)="handleFilter('wasNotContacted')">
+    Select Not Contacted Users
+  </button>
+</div>
+
+<span
+  *ngIf="
+    users.length !== 0 &&
+    loadingStatus == 'Loaded' &&
+    selectedUser === undefined
+  "
+>
+  <div class="users_container" *ngFor="let user of users">
+    <user-card
+      [user]="user"
+      (userContacted)="handleContact($event, user.id)"
+      (userSelected)="handleUserSelection($event)"
+    ></user-card>
+  </div>
+</span>
+
+<span *ngIf="loadingStatus == 'Loading' && selectedUser === undefined">
+  <div class="users_loading">Loading . . . .</div>
+</span>
+<span
+  *ngIf="
+    users.length === 0 &&
+    loadingStatus == 'Loaded' &&
+    selectedUser === undefined
+  "
+>
+  <div class="users_empty">No Users Found</div>
+</span>
+
+<div class="userModal" *ngIf="selectedUser !== undefined">
+  <button (click)="handleUserDeselection()">X</button>
+  <user-card
+    [user]="selectedUser"
+    (userContacted)="handleContact($event, selectedUser.id)"
+    [selected]="true"
+  ></user-card>
+</div>
