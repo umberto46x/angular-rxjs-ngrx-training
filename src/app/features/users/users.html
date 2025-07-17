@@ -1,8 +1,5 @@
 <div class="users_filter">
-  <div>
-    Active Filter:
-    <p>{{ filter }}</p>
-  </div>
+  <h2 class="filter">Filter: {{ filter }}</h2>
   <button (click)="handleFilter('All')">Select All Users</button>
   <button (click)="handleFilter('wasContacted')">Select Contacted Users</button>
   <button (click)="handleFilter('wasNotContacted')">
@@ -17,8 +14,9 @@
     selectedUser === undefined
   "
 >
-  <div class="users_container" *ngFor="let user of users">
+  <div class="users_container">
     <user-card
+      *ngFor="let user of users"
       [user]="user"
       (userContacted)="handleContact($event, user.id)"
       (userSelected)="handleUserSelection($event)"
