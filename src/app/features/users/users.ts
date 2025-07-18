@@ -24,7 +24,7 @@ export class Users implements OnInit {
     setTimeout(() => {
       this.users = this.userService.getUsers();
       this.loadingStatus = 'Loaded';
-    }, 2000);
+    }, 1000);
   }
 
   handleContact(e: boolean, id: number) {

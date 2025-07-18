@@ -4,5 +4,6 @@ export interface User {
   surname: string;
   age: number;
   address: string;
+  phone: number;
   wasContacted: boolean;
 }

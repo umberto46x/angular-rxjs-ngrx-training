@@ -1,5 +1,10 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterModule,
+} from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from '../../models/User';
 import { UsersService } from '../../services/users-service';
@@ -20,7 +25,7 @@ export class UserDetails implements OnDestroy, OnInit {
 
   ngOnInit() {
     this.idSub = this.activatedRoute.params.subscribe((data) => {
-      this.user = this.userService.getUserById(data['userId']);
+      this.user = this.userService.getUserById(Number(data['userId']));
     });
   }
 
@@ -28,5 +33,9 @@ export class UserDetails implements OnDestroy, OnInit {
     if (this.idSub) {
       this.idSub.unsubscribe();
     }
+  }
+
+  handleBackNavigation() {
+    this.router.navigate(['../', { relativeTo: this.router.routerState.root }]);
   }
 }

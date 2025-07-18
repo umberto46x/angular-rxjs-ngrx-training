@@ -1,12 +1,11 @@
 <div class="card_container">
   <h1>{{ user?.id }} {{ user?.name }} {{ user?.surname }}</h1>
-  <p>
-    Age: {{ user?.age }} - Address: {{ user?.address }} - Contacted:
-    {{ user?.wasContacted }}
-  </p>
+  <p>Age: {{ user?.age }} - Contacted: {{ user?.wasContacted }}</p>
   <button type="button" (click)="handleContact()">Contact Me</button>
   <span *ngIf="!selected">
     <!-- <button type="button" (click)="handleUserDetails()">Show Details</button> -->
-    <a [routerLink]="['/users/', user?.id]"><button>Show Details</button></a>
+    <a [routerLink]="['/users/', user?.id]"
+      ><button type="button">Show Details</button></a
+    >
   </span>
 </div>

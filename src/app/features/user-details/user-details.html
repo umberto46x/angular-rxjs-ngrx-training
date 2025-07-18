@@ -1,15 +1,38 @@
 <div class="userDetails_container">
-  <a href=""><button>Go Back</button></a>
-  <span *ngIf="user !== undefined">
-    <section>
-      <header>
-        <h2>User Details</h2>
-      </header>
-      <p>{{ user.id }}</p>
-      <p>{{ user.name }}</p>
-      <p>{{ user.surname }}</p>
-      <p>{{user.}}</p>
-      <footer></footer>
-    </section>
-  </span>
+  <button (click)="handleBackNavigation()" type="button">
+    <span>Back</span>
+  </button>
+  <section *ngIf="user !== undefined" class="userDetails">
+    <header>
+      <h2>User Details</h2>
+    </header>
+    <p>
+      ID: <br />
+      {{ user.id }}
+    </p>
+    <p>
+      Name: <br />
+      {{ user.name }}
+    </p>
+    <p>
+      Surname: <br />
+      {{ user.surname }}
+    </p>
+    <p>
+      Age: <br />
+      {{ user.age }}
+    </p>
+    <p>
+      Contacted: <br />
+      {{ user.wasContacted }}
+    </p>
+    <p>
+      Phone: <br />
+      {{ user.phone }}
+    </p>
+    <p>
+      Address: <br />
+      {{ user.address }}
+    </p>
+  </section>
 </div>
