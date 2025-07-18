@@ -1,1 +1,15 @@
-<p>user-details works!</p>
+<div class="userDetails_container">
+  <a href=""><button>Go Back</button></a>
+  <span *ngIf="user !== undefined">
+    <section>
+      <header>
+        <h2>User Details</h2>
+      </header>
+      <p>{{ user.id }}</p>
+      <p>{{ user.name }}</p>
+      <p>{{ user.surname }}</p>
+      <p>{{user.}}</p>
+      <footer></footer>
+    </section>
+  </span>
+</div>

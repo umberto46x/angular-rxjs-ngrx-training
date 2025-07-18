@@ -8,12 +8,13 @@ import {
 } from '@angular/core';
 import { User } from '../../models/User';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'user-card',
   outputs: ['userContacted'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './user-card.html',
   styleUrl: './user-card.scss',
 })

@@ -23,7 +23,6 @@ export class Users implements OnInit {
     this.loadingStatus = 'Loading';
     setTimeout(() => {
       this.users = this.userService.getUsers();
-      console.log('users loaded');
       this.loadingStatus = 'Loaded';
     }, 2000);
   }
