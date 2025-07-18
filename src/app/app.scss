@@ -1,8 +1,9 @@
 @use "components/user-card/user-card.scss";
+@use "layout/navbar/navbar.scss";
 @use "features/user-details/user-details.scss";
 @use "features/users/users.scss";
 @use "features/home/home.scss";
-@use "layout/navbar/navbar.scss";
+@use "features/rxjs-training/rxjs-training.scss";
 
 body {
   background-color: lightgrey;
