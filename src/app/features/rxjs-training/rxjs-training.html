@@ -1,1 +1,57 @@
-<div class="rxjs_container">AAAAAA</div>
+<div class="rxjs_container">
+  <h2>Event Created Observable</h2>
+
+  <button id="button">Click</button>
+  @if (this.clickAmount() > 0) {
+  <p>Clicks: {{ clickAmount() }}</p>
+  }
+</div>
+
+<div class="rxjs_container">
+  <h2>Timer Created Observable</h2>
+  <p>Seconds Occurred: {{ seconds() }}</p>
+</div>
+
+<div class="rxjs_container">
+  <h2>Api received Observable</h2>
+  <button (click)="handleAllPosts()">Retrieve All Posts</button>
+
+  <div class="posts_container">
+    @if (posts$) { @for (post of posts$ | async; track post.id) {
+    <div class="post">
+      <p>Post ID: {{ post.id }}</p>
+      <p>User ID: {{ post.userId }}</p>
+      <p>Post Title: {{ post.title }}</p>
+      <p>Is Completed: {{ post.completed }}</p>
+    </div>
+    } } @if (!posts$ ){
+    <p>No Posts Loaded</p>
+    }
+  </div>
+</div>
+
+<div class="rxjs_container">
+  <h2>Debounce e SwitchMap Observable</h2>
+
+  <input
+    class="searchBar"
+    type="text"
+    [formControl]="this.searchValue"
+    placeholder="Search for a movie"
+  />
+
+  @if (this.searchResults$ && ((searchResults$ | async)?.length ?? 0) > 0) {
+  <div class="movies_container">
+    @for (movie of searchResults$ | async ; track movie.imdbID) {
+    <img src="" alt="Movie Poster" />s
+    <ul>
+      <li>Movie ID: {{ movithe e.imdbID }}</li>
+      <li>Movie title: {{ movie.Title }}</li>
+      <li>Movie type: {{ movie.Type }}</li>
+      <li>Movie year: {{ movie.Year }}</li>
+    </ul>
+
+    }
+  </div>
+  }
+</div>
