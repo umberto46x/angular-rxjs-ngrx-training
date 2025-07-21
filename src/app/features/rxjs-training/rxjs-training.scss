@@ -38,4 +38,46 @@
       }
     }
   }
+
+  .searchBar {
+    padding: 1rem;
+    background-color: black;
+    border: 5px solid red;
+    font-size: 1.3rem;
+
+    &::placeholder {
+      color: red;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+
+    &:focus {
+      color: red;
+    }
+  }
+
+  .movies_container {
+    border: 2px solid red;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .movie_card {
+      padding: 1rem;
+      border: 1px solid red;
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    li {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
 }

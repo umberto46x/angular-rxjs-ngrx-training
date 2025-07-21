@@ -40,16 +40,18 @@
     placeholder="Search for a movie"
   />
 
-  @if (this.searchResults$ && ((searchResults$ | async)?.length ?? 0) > 0) {
+  @if (this.searchResults$) {
   <div class="movies_container">
-    @for (movie of searchResults$ | async ; track movie.imdbID) {
-    <img src="" alt="Movie Poster" />s
-    <ul>
-      <li>Movie ID: {{ movithe e.imdbID }}</li>
-      <li>Movie title: {{ movie.Title }}</li>
-      <li>Movie type: {{ movie.Type }}</li>
-      <li>Movie year: {{ movie.Year }}</li>
-    </ul>
+    @for (movie of (searchResults$ | async)?.Search ; track movie.imdbID) {
+    <div class="movie_card">
+      <img src="{{ movie.Poster }}" alt="Movie Poster" />
+      <ul>
+        <li>Movie ID: {{ movie.imdbID }}</li>
+        <li>Movie title: {{ movie.Title }}</li>
+        <li>Movie type: {{ movie.Type }}</li>
+        <li>Movie year: {{ movie.Year }}</li>
+      </ul>
+    </div>
 
     }
   </div>
