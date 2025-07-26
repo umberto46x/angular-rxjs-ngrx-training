@@ -1,1 +1,10 @@
-<p>ngrx-training works!</p>
+<section class="nrgx_container">
+  <h1>Counter Store</h1>
+
+  <div class="ngrx_actions">
+    <button (click)="increment()">Increment</button>
+    <p>{{ counter$ | async }}</p>
+    <button (click)="decrement()">Decrement</button>
+    <button (click)="reset()">Reset</button>
+  </div>
+</section>
