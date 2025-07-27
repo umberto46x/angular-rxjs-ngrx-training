@@ -1,8 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { decrement, increment, reset } from '../../actions/counter.actions';
+import { Todo } from '../../models/Todo';
+import {
+  addTodo,
+  loadTodos,
+  removeTodo,
+} from '../../state/todos/todos.actions';
+import { selectAllTodos } from '../../state/todos/todos.selectors';
+import { AppState } from '../../state/app.state';
 
 @Component({
   selector: 'app-ngrx-training',
@@ -11,23 +23,22 @@ import { decrement, increment, reset } from '../../actions/counter.actions';
   templateUrl: './ngrx-training.html',
   styleUrl: './ngrx-training.scss',
 })
-export class NgrxTraining {
-  counter$: Observable<number>;
+export class NgrxTraining implements OnInit {
+  store: Store<AppState> = inject(Store);
+  todos$: Observable<Todo[]> = this.store.select(selectAllTodos);
 
-  constructor(public store: Store<{ counter: number }>) {
-    this.counter$ = store.select((state) => state.counter);
+  ngOnInit() {
+    this.store.dispatch(loadTodos());
   }
 
-  increment() {
-    this.store.dispatch(increment());
-    console.log(this.store.select((state) => state.counter));
+  addTodo(inputElement: HTMLInputElement) {
+    if (inputElement.value) {
+      this.store.dispatch(addTodo({ content: inputElement.value }));
+      inputElement.value = '';
+    }
   }
 
-  decrement() {
-    this.store.dispatch(decrement());
-  }
-
-  reset() {
-    this.store.dispatch(reset());
+  removeTodo(id: number) {
+    this.store.dispatch(removeTodo({ id: id }));
   }
 }

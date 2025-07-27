@@ -1,10 +1,19 @@
 <section class="nrgx_container">
-  <h1>Counter Store</h1>
+  <h1>ToDo Store</h1>
 
   <div class="ngrx_actions">
-    <button (click)="increment()">Increment</button>
-    <p>{{ counter$ | async }}</p>
-    <button (click)="decrement()">Decrement</button>
-    <button (click)="reset()">Reset</button>
+    <label for="todoInput">Input the ToDo</label>
+    <input type="text" #input id="todoInput" name="todoInput" />
+    <button (click)="addTodo(input)">Add The Todo</button>
+
+    <ul>
+      <h2>Todo List</h2>
+      @for (todo of todos$ | async; track todo.id) {
+      <li>
+        {{ todo.id }} - {{ todo.content }} -
+        <button (click)="removeTodo(todo.id)">X</button>
+      </li>
+      }
+    </ul>
   </div>
 </section>
