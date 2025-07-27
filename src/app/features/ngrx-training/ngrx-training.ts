@@ -12,6 +12,7 @@ import {
   addTodo,
   loadTodos,
   removeTodo,
+  toggleTodo,
 } from '../../state/todos/todos.actions';
 import { selectAllTodos } from '../../state/todos/todos.selectors';
 import { AppState } from '../../state/app.state';
@@ -36,6 +37,9 @@ export class NgrxTraining implements OnInit {
       this.store.dispatch(addTodo({ content: inputElement.value }));
       inputElement.value = '';
     }
+  }
+  toggleTodo(id: number) {
+    this.store.dispatch(toggleTodo({ id: id }));
   }
 
   removeTodo(id: number) {

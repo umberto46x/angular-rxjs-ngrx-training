@@ -43,9 +43,38 @@
       padding: 1rem;
       text-align: center;
 
-      li {
+      .todo,
+      .todo-completed {
         border: 2px solid gray;
         padding: 1rem;
+
+        .toggle_button {
+          background-color: green;
+          margin-bottom: 0.5rem;
+
+          &:hover {
+            background-color: darken($color: green, $amount: 10);
+          }
+        }
+
+        .toggle_button-completed {
+          background-color: white;
+          margin-bottom: 0.5rem;
+
+          color: green;
+          &:hover {
+            background-color: darken($color: white, $amount: 10);
+          }
+        }
+
+        p:nth-of-type(1) {
+          font-weight: 500;
+          font-size: 1.3rem;
+        }
+        p:nth-of-type(2) {
+          font-weight: 600;
+          font-size: 1.5rem;
+        }
 
         &:nth-of-type(1) {
           margin: 0 0 1rem 0;
@@ -57,10 +86,23 @@
         margin: 1rem 0 1rem 0;
       }
 
-      button {
+      .todo-completed {
+        background-color: green;
+        color: white;
+      }
+
+      button,
+      .toggle_button,
+      .toggle_button-completed {
         background-color: red;
         color: white;
         padding: 1rem;
+        width: 25px;
+        height: 25px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &:hover {
           background-color: darken($color: red, $amount: 10);
         }

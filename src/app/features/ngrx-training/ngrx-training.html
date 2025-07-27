@@ -9,8 +9,19 @@
     <ul>
       <h2>Todo List</h2>
       @for (todo of todos$ | async; track todo.id) {
-      <li>
-        {{ todo.id }} - {{ todo.content }} -
+      <li [classList]="!todo.completed ? 'todo' : 'todo-completed'">
+        <p>{{ todo.id }}</p>
+        <p>{{ todo.content }}</p>
+        <p>{{ todo.completed ? "Completed" : "Not Completed" }}</p>
+
+        <button
+          [classList]="
+            !todo.completed ? 'toggle_button' : 'toggle_button-completed'
+          "
+          (click)="toggleTodo(todo.id)"
+        >
+          V
+        </button>
         <button (click)="removeTodo(todo.id)">X</button>
       </li>
       }
